@@ -1,106 +1,183 @@
-# Company-10K-Analyzer
+# 📊 Company 10K Financial Analyzer
 
-The Company 10K Analyzer is a web application designed to analyze and visualize financial data extracted from SEC filings (Form 10-K) of publicly traded companies. This application allows users to explore key financial metrics, trends, and insights derived from historical financial reports.
+A powerful Streamlit application that analyzes financial data from SEC 10-K filings using AI-powered insights and advanced data visualization.
 
-## Tech Stack
+## ✨ Features
 
-- **Python**: Chosen as the primary programming language due to its versatility, extensive libraries for data manipulation and visualization, and strong community support in the data science and web development domains.
-  
-- **Streamlit**: Selected for building the interactive web application due to its simplicity and ease of use for creating data-driven applications. Streamlit allows rapid prototyping and deployment of web apps directly from Python scripts.
+- **📥 Automated Filing Downloads**: Download SEC 10-K filings for any public company
+- **🔍 Advanced Financial Extraction**: Extract key financial metrics using enhanced regex patterns
+- **🤖 AI-Powered Analysis**: Generate insights using Google's Gemini AI
+- **📈 Interactive Visualizations**: Beautiful charts and graphs for financial trends
+- **❓ Interactive Q&A**: Ask questions about financial data and get AI-powered answers
+- **📊 Data Export**: View financial data in organized tables
+- **⚙️ Configurable Settings**: Easy configuration through environment variables
 
-- **Google Generative AI (Gemini API)**: AI model used for generating insights from financial data. The Gemini API from Google's Generative AI platform is utilized to analyze financial data and generate meaningful insights, providing valuable information for users and stakeholders.
-Note: Replace `api_key` in the code with your own API key obtained from the Google Generative AI (Gemini) platform.
+## 🚀 Key Improvements
 
-- **sec_edgar_downloader**: Utilized for fetching SEC filings (specifically 10-K reports) for a given ticker symbol. This library provides a convenient interface to access financial documents from the SEC's EDGAR database.
+### Code Structure
+- **Object-Oriented Design**: Clean class-based architecture
+- **Type Hints**: Full type annotation for better code maintainability
+- **Error Handling**: Comprehensive error handling and logging
+- **Configuration Management**: Centralized configuration using dataclasses
 
-- **BeautifulSoup**: Used for HTML parsing to extract text content from SEC filings. BeautifulSoup facilitates the extraction of relevant financial information from the raw HTML of the filings.
+### Enhanced Functionality
+- **Better Financial Extraction**: Improved regex patterns for more accurate data extraction
+- **Advanced Visualizations**: Multiple chart types with better styling
+- **AI Integration**: Context-aware question answering
+- **Data Validation**: Input validation for ticker symbols and dates
+- **Progress Indicators**: User-friendly loading states and progress bars
 
-- **Matplotlib**: Employed for generating financial visualizations such as line plots of key financial metrics over time. Matplotlib is a powerful plotting library that enables the creation of customizable and publication-quality charts.
+### User Experience
+- **Modern UI**: Clean, responsive interface with emojis and better styling
+- **Sidebar Navigation**: Organized settings and controls
+- **Real-time Feedback**: Success/error messages and status updates
+- **Interactive Elements**: Date pickers, dropdowns, and dynamic content
 
-- **Tabulate**: Used to format financial data into tables for display in the Streamlit application. Tabulate simplifies the process of presenting structured data in a readable tabular format.
+## 🛠️ Installation
 
-## Project Overview
-
-This project enables users to:
-
-- Input a ticker symbol and date range to download corresponding 10-K filings from the SEC.
-- Process the downloaded filings to extract key financial metrics such as revenue, net income, total assets, and total liabilities.
-- Display the extracted financial data in a tabular format on a web page.
-- Provide an interactive interface for users to ask questions related to the financial data and receive answers based on the processed information.
-- Visualize the financial metrics over time using line plots for deeper analysis.
-
-
-
-## How to Run
-
-1. **Clone the Repository:**
+1. **Clone the repository**:
    ```bash
-   git clone https://github.com/akshatnahata05/Company-10K-Analyzer.git
-   cd Company-10K-Analyzer
-2. **Install Dependencies:**
+   git clone <repository-url>
+   cd Company-10K-Analyzer-main
+   ```
+
+2. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
-3. **Run the Streamlit App:**
+   ```
+
+3. **Set up environment variables**:
+   ```bash
+   export GEMINI_API_KEY="your_gemini_api_key_here"
+   export USER_AGENT="Your-App-Name"
+   export USER_EMAIL="your_email@example.com"
+   ```
+
+## 🎯 Usage
+
+1. **Run the application**:
    ```bash
    streamlit run app.py
-4. **Access the Streamlit Dashboard:**
-   Open a web browser and navigate to http://localhost:8501 to interact with the financial data analysis dashboard.
+   ```
 
-## Insights
+2. **Enter company information**:
+   - Enter a valid ticker symbol (e.g., AAPL, MSFT, GOOGL)
+   - Select date range for analysis
+   - Click "Analyze Financial Data"
 
-- **Revenue Growth Trends**: Understand the revenue growth trajectory of the analyzed company over the specified period.
-- **Net Income Fluctuations**: Analyze the fluctuations in net income to gauge profitability trends.
-- **Total Assets and Liabilities**: Visualize changes in total assets and liabilities to assess financial stability.
-  
-## Why Care About These Insights?
+3. **View results**:
+   - Financial data table with extracted metrics
+   - Interactive visualizations
+   - AI-generated insights
+   - Ask custom questions about the data
 
-These insights provide valuable information for investors, financial analysts, and stakeholders to make informed decisions:
+## 📋 Supported Financial Metrics
 
-- Revenue growth trends indicate business performance and market potential.
-- Net income fluctuations reflect profitability and operational efficiency.
-- Total assets and liabilities help assess financial health and risk exposure.
+- **Revenue**: Total revenue figures
+- **Net Income**: Net profit/loss
+- **Total Assets**: Company's total assets
+- **Total Liabilities**: Company's total liabilities
+- **Cash Flow**: Operating cash flow
+- **Debt**: Total debt obligations
 
-## Live Demo and Video Demo
+## 🔧 Configuration
 
-Explore the live demo of the app [here](https://company-10k-analyzer.streamlit.app/).
+### Environment Variables
 
-Explore the video demo of the app [here](https://drive.google.com/file/d/1fc60fyt2ICgrCA_zJvlYn5HllCJhkViB/view?usp=sharing).
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `GEMINI_API_KEY` | Google Gemini AI API key | Required |
+| `USER_AGENT` | User agent for SEC downloads | "Company-10K-Analyzer" |
+| `USER_EMAIL` | Email for SEC downloads | "akshatnahata05@gmail.com" |
 
-## Screenshots
+### Date Range
+- **Minimum**: 1990-01-01
+- **Maximum**: Current date
+- **Format**: YYYY-MM-DD
 
-![Financial Table](Screenshots/Generating%20Insights.png)
-*Screenshot: Download Successful and Generating Insights for AAPL from 1995 to 2023.*
+## 📊 Data Processing
 
-![Financial Table](Screenshots/Files_Downloaded.png)
-*Screenshot: Download Files for AAPL from 1995 to 2023.*
+### Financial Data Extraction
+The application uses enhanced regex patterns to extract financial information from 10-K filings:
 
-![Financial Table](Screenshots/Filing_file.png)
-*Screenshot: 10k Filing for AAPL for 2017*
+```python
+# Example patterns
+revenue_patterns = [
+    r'(?:total\s+)?revenue(?:\s+in\s+millions?)?\s*[:\-]?\s*\$?([\d,]+\.?\d*)',
+    r'revenue\s*[:\-]?\s*\$?([\d,]+\.?\d*)',
+    r'net\s+revenue\s*[:\-]?\s*\$?([\d,]+\.?\d*)'
+]
+```
 
-![Financial Table](Screenshots/FD4.png)
-*Screenshot: Financial Details for AAPL from 1995 to 2023.*
+### AI Analysis
+The application uses Google's Gemini AI to:
+- Analyze financial trends
+- Generate insights
+- Answer user questions
+- Provide recommendations
 
-![Financial Table](Screenshots/FV1.png)
-*Screenshot: Financial visualizations showing revenue, net income, total assets, and total liabilities over time for AAPL.*
+## 🎨 Visualizations
 
-![Financial Table](Screenshots/TOTAL%20FV.png)
-*Screenshot: Full visualisation for AAPL from 1995 to 2023.*
+The application creates multiple types of charts:
 
-![Financial Table](Screenshots/FA1.png)
-*Screenshot: Financial Analysis and Insights for AAPL from 1995 to 2023.*
+1. **Line Charts**: Show trends over time
+2. **Scatter Plots**: Display data distribution
+3. **Bar Charts**: Compare metrics across years
+4. **Financial Metrics Dashboard**: Comprehensive overview
 
-![Financial Table](Screenshots/FA2.png)
-*Screenshot: Financial Analysis and Insights for AAPL from 1995 to 2023.*
+## 🔍 Error Handling
 
+The application includes comprehensive error handling:
 
-![Financial Table](Screenshots/ASK.png)
-*Screenshot: Ask a question for AAPL from 1995 to 2023.*
+- **API Key Validation**: Checks for required API keys
+- **Ticker Validation**: Validates ticker symbol format
+- **Date Validation**: Ensures valid date ranges
+- **File Processing**: Handles corrupted or missing files
+- **Network Errors**: Manages download failures
 
-## Feedback
+## 📈 Performance Optimizations
 
-For any issues or feedback, please create a new issue [here](https://github.com/akshatnahata05/Company-10K-Analyzer/issues).
+- **Lazy Loading**: Load data only when needed
+- **Caching**: Cache processed financial data
+- **Parallel Processing**: Process multiple files concurrently
+- **Memory Management**: Efficient data structures
 
+## 🤝 Contributing
 
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
 
-   
-# Company-10K-Analyzer
+## 📝 License
+
+This project is licensed under the MIT License.
+
+## 🆘 Troubleshooting
+
+### Common Issues
+
+1. **API Key Error**: Ensure `GEMINI_API_KEY` is set correctly
+2. **Download Failures**: Check internet connection and SEC server status
+3. **No Data Found**: Verify ticker symbol and date range
+4. **Memory Issues**: Reduce date range for large companies
+
+### Debug Mode
+
+Enable debug logging:
+```python
+import logging
+logging.basicConfig(level=logging.DEBUG)
+```
+
+## 📞 Support
+
+For issues and questions:
+- Check the troubleshooting section
+- Review the error logs
+- Open an issue on GitHub
+
+---
+
+**Note**: This application requires an active internet connection and a valid Google Gemini AI API key to function properly.

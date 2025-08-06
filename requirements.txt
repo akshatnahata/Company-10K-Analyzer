@@ -1,8 +1,12 @@
 Flask
-matplotlib
-bs4
-sec_edgar_downloader
-google-generativeai 
+matplotlib>=3.7.0
+bs4>=4.12.0
+sec_edgar_downloader>=4.0.0
+google-generativeai>=0.3.0
 tabulate
-streamlit
+streamlit>=1.28.0
+pandas>=2.0.0
+lxml>=4.9.0
+pathlib2>=2.3.0
+typing-extensions>=4.5.0 
 
